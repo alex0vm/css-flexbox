@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500&display=swap" rel="stylesheet"> 
+</head>
+<style>
+    
+    *{ /* Resetear valores */
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Hind Siliguri', sans-serif;
+    }
+    body{
+        display: flex;
+        height: 100vh;
+        flex-flow: column;
+        font-size: 16px;
+    }
+    .header{
+        background:black;
+        height: 3rem;
+        
+    }
+    
+    .container{
+        display: flex;
+        height: inherit; /* Hereda height de su padre (body) */
+        
+    }
+    .content{
+        flex: 2;
+        background-color: #FBAB7E;
+        background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+    }
+    .aside{
+        outline: 1px solid tomato;
+        background: tomato;
+        flex: 0 0 1rem;
+        transition: flex 600ms;
+        display: flex;
+
+    }
+    
+    .aside:hover{
+        flex:0 0 25%;
+    }
+    .texto{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .aside:hover div{
+        display:flex;
+        justify-content: center;
+        align-items:stretch;
+
+
+    }
+    .cart{
+        width: 3rem;
+        height: 3rem;
+    }
+    .footer{
+        height: 6rem;
+        margin-top: auto;
+        
+    }
+    .menu{
+        display: flex;
+    }
+    .menu__item{
+        list-style: none;
+        flex: 1;
+        line-height: 3rem;
+        text-align: center;
+        transition:flex 500ms;
+        font-weight: bold;
+        color: whitesmoke;
+        border-left:2px solid white;
+    }
+    .menu__item:hover{
+        flex:2;
+        cursor: pointer;
+    }
+    .menu__footer{
+        display: flex;
+        background:rgba(0, 0, 0, 0.1);
+    }
+    .menu__footer--item{
+        list-style: none;
+        flex: 1;
+        line-height: 5rem;
+        text-align: center;
+        border-right: 1px solid black;
+    }
+    .menu__footer--item a{
+        text-decoration: none;
+        color: black;
+        transition: 500ms;
+    }
+    .menu__footer--item a:hover{
+        font-size: 2rem;
+    }
+    .content__titulo{
+        text-align: center;
+        font-size: 2rem;
+        margin-top: 2rem;
+    }
+    .content__menu {
+        position: relative;
+        width: 85%;
+        margin:1rem 7rem;
+        padding: 1rem 1rem;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content__menu--items{
+        width: 10rem;
+        outline: 2px solid cornflowerblue;
+        background: cornflowerblue;
+        background: rgba(0, 0, 0, 0.1);
+        padding: 1rem 1rem;
+        margin: 1rem;
+        transform-origin: center left;
+        transition: 500ms;
+        
+    }
+    .content__menu--items:hover ~.content__menu--items{
+        transform: translate3d(100px, 0, 0px)
+    }
+    .content__menu--items:hover {
+        transform: scale(1.3);
+        cursor: pointer;
+    }
+    .content__menu--items img{
+        width: 8rem;
+        height: 5rem;
+    }
+    .content__menu--img{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 2rem;
+    }
+    .descripcion{
+        font-size: 12px;
+        position: relative;
+    }
+
+    @media only screen and (max-width:600px){
+        .container{
+            background-color: transparent;
+            border: none;
+            padding: 0px;
+            width: 100%;
+        }
+        .footer{
+            align-items: center;
+            flex-direction: column;
+
+        }
+    }
+    
+</style>
+<body>
+    <header class="header">
+        <ul class="menu">
+            <li class="menu__item">Home</li>
+            <li class="menu__item">Explorar</li>
+            <li class="menu__item">Destacados</li>
+            <li class="menu__item">Tu lista de deseos</li>
+        </ul>
+    </header>
+    <section class="container">
+        <section class="content">
+            <h1 class="content__titulo">Tus productos</h1>
+            <div class="content__menu">
+                
+                <div class="content__menu--items">
+                    <div class="content__menu--img">
+                        <img src="https://images.pexels.com/photos/164967/pexels-photo-164967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" srcset="">
+                    </div>
+                    <div class="content__menu--descripcion">
+                        <h5>Nombre producto</h5>
+                        <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit pariatur vero distinctio libero deleniti neque. </p>
+                    </div>
+                </div>
+
+                <div class="content__menu--items">
+                    <div class="content__menu--img">
+                        <img src="https://images.pexels.com/photos/164967/pexels-photo-164967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" srcset="">
+                    </div>
+                    <div class="content__menu--descripcion">
+                        <h5>Nombre producto</h5>
+                        <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit pariatur vero distinctio libero deleniti neque. </p>
+                    </div>
+                </div>
+
+                <div class="content__menu--items">
+                    <div class="content__menu--img">
+                        <img src="https://images.pexels.com/photos/164967/pexels-photo-164967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" srcset="">
+                    </div>
+                    <div class="content__menu--descripcion">
+                        <h5>Nombre producto</h5>
+                        <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit pariatur vero distinctio libero deleniti neque. </p>
+                    </div>
+                </div>
+
+                <div class="content__menu--items">
+                    <div class="content__menu--img">
+                        <img src="https://images.pexels.com/photos/164967/pexels-photo-164967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" srcset="">
+                    </div>
+                    <div class="content__menu--descripcion">
+                        <h5>Nombre producto</h5>
+                        <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit pariatur vero distinctio libero deleniti neque. </p>
+                    </div>
+                </div>
+
+                <div class="content__menu--items">
+                    <div class="content__menu--img">
+                        <img src="https://images.pexels.com/photos/164967/pexels-photo-164967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" srcset="">
+                    </div>
+                    <div class="content__menu--descripcion">
+                        <h5>Nombre producto</h5>
+                        <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit pariatur vero distinctio libero deleniti neque. </p>
+                    </div>
+                </div>
+
+                <div class="content__menu--items">
+                    <div class="content__menu--img">
+                        <img src="https://images.pexels.com/photos/164967/pexels-photo-164967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" srcset="">
+                    </div>
+                    <div class="content__menu--descripcion">
+                        <h5>Nombre producto</h5>
+                        <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit pariatur vero distinctio libero deleniti neque. </p>
+                    </div>
+                </div>
+
+                
+
+            </div>
+
+                </div>
+            </div>
+        </section>
+            <aside class="aside">
+                <div class="texto">
+                    <img class="cart" src="https://img.icons8.com/carbon-copy/100/000000/shopping-cart.png"/>
+                </div>
+            </aside>
+            </aside>
+    </section> 
+    <footer class="footer">
+            <ul class="menu__footer">
+                <li class="menu__footer--item"><a href="/">Términos y condiciones</a></li>
+                <li class="menu__footer--item"><a href="/">Acerca de</a></li>
+                <li class="menu__footer--item"><a href="/">Contacto</a></li>
+            </ul>
+    </footer>
+</body>
+</html>
